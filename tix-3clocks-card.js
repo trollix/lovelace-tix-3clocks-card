@@ -64,15 +64,15 @@ class Tix3ClocksCard extends Polymer.Element {
 				<div class="zones-clocks">
 					<div class="clock-zone1">
 						<div class="zone-time" id="time_zone1"></div>
-						<div class="zone-name">New York</div>
+						<div class="zone-name">Paris</div>
 					</div>
 					<div class="clock-zone2">
 						<div class="zone-time" id="time_zone2"></div>
-						<div class="zone-name">London</div>
+						<div class="zone-name">Londres</div>
 					</div>
 					<div class="clock-zone3">
 						<div class="zone-time" id="time_zone3"></div>
-						<div class="zone-name">Moscow</div>
+						<div class="zone-name">New York</div>
 					</div>
 				</div>
 			</div>
