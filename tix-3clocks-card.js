@@ -114,7 +114,7 @@ class Tix3ClocksCard extends Polymer.Element {
 	};
   
     let clockFormatZone1 = {
-		timeZone: "America/New_York",
+		timeZone: "Europe/Paris",
 		hour12: false,
 		hour: "2-digit",
 		minute: "2-digit"
@@ -128,22 +128,22 @@ class Tix3ClocksCard extends Polymer.Element {
 	};
   
     let clockFormatZone3 = {
-		timeZone: "Europe/Moscow",
+		timeZone: "America/New_York",
 		hour12: false,
 		hour: "2-digit",
 		minute: "2-digit"
 	};
   
-  	let DateOptions = {
+    let DateOptions = {
 		weekday: "long",
 		month: "2-digit",
 		day: "2-digit",
 		year: "numeric"
 	};
 	
-	let date = new Date();
-	let locale = 'fr-FR';
-	let time = date.toLocaleTimeString([], clockFormatMain);
+    let date = new Date();
+    let locale = 'fr-FR';
+    let time = date.toLocaleTimeString([], clockFormatMain);
 	let time1 = date.toLocaleTimeString([], clockFormatZone1);
 	let time2 = date.toLocaleTimeString([], clockFormatZone2);
 	let time3 = date.toLocaleTimeString([], clockFormatZone3);
