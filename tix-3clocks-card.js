@@ -1,9 +1,11 @@
+import {LitElement, html, customElement} from 'https://unpkg.com/lit-element?module';
+
 export const hass = document.querySelector("home-assistant").hass;
 
-class Tix3ClocksCard extends Polymer.Element {
+class Tix3ClocksCard extends LitElement {
   
-  static get template() {
-    return Polymer.html`
+  render() {
+    return html`
         <style>
 			:host { cursor: default; }
 			.content { padding: 24px 16px; display:flex; flex-wrap: wrap; align-items: center; }
