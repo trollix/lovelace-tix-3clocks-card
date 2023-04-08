@@ -2,7 +2,7 @@ import {LitElement, html, customElement} from 'https://unpkg.com/lit-element?mod
 
 export const hass = document.querySelector("home-assistant").hass;
 
-const CARD_VERSION = '0.4.4';
+const CARD_VERSION = '0.4.5';
 
 console.info(
   `%c  TIX-3CLOCKS-CARD \n%c  Version ${CARD_VERSION}    `,
@@ -26,7 +26,7 @@ class Tix3ClocksCard extends LitElement {
 			}
 			.clockicon { align-self: baseline; margin-right: 1.2em; }
 			.clockicon .ha-icon ha-icon { width: 5em; height: 5em; }
-			.time {
+			.main_date {
 				font-family: var(--paper-font-headline_-_font-family);
 				-webkit-font-smoothing: var(--paper-font-headline_-_-webkit-font-smoothing);
 				font-size: 3em;
@@ -35,7 +35,7 @@ class Tix3ClocksCard extends LitElement {
 				line-height: 1em;
 				text-rendering: var(--paper-font-common-expensive-kerning_-_text-rendering);
 			}
-			.date {
+			.main_date {
 				font-family: var(--paper-font-headline_-_font-family);
 				-webkit-font-smoothing: var(--paper-font-headline_-_-webkit-font-smoothing);
 				font-size: 1.3em;
@@ -68,8 +68,8 @@ class Tix3ClocksCard extends LitElement {
 				<div class="main-clock">
 					<div class="clockicon"> <span class="ha-icon"><ha-icon icon="mdi:clock-outline"></ha-icon></span> </div>
 					<div class="date-time">
-						<div class="time" id="time"></div>
-						<div class="date" id="date"></div>
+						<div class="main_time" id="main_time"></div>
+						<div class="main_date" id="main_date"></div>
 					</div>
 				</div>
 				<div class="zones-clocks">
@@ -96,20 +96,20 @@ class Tix3ClocksCard extends LitElement {
       _hass: Object,
       main_time: { type: Object },
       main_date: { type: Object },
-      zone1_time: { type: Object },
-      zone2_time: { type: Object },
-      zone3_time: { type: Object },
+      time_zone1: { type: Object },
+      time_zone2: { type: Object },
+      time_zone3: { type: Object },
     }
   }
   
 connectedCallback() {
   super.connectedCallback();
   setTimeout(() => {
-    this.main_time = this.shadowRoot.querySelector("#time");
-    this.main_date = this.shadowRoot.querySelector("#date");
-    this.zone1_time = this.shadowRoot.querySelector("#time_zone1");
-    this.zone2_time = this.shadowRoot.querySelector("#time_zone2");
-    this.zone3_time = this.shadowRoot.querySelector("#time_zone3");
+    this.main_time = this.shadowRoot.querySelector("#main_time");
+    this.main_date = this.shadowRoot.querySelector("#main_date");
+    this.time_zone1 = this.shadowRoot.querySelector("#time_zone1");
+    this.time_zone2 = this.shadowRoot.querySelector("#time_zone2");
+    this.time_zone3 = this.shadowRoot.querySelector("#time_zone3");
     this._updateTime();
     setInterval(() => this._updateTime(), 500);
   }, 0);
@@ -167,10 +167,10 @@ connectedCallback() {
     let time3 = date.toLocaleTimeString([], clockFormatZone3);
 	
     this.shadowRoot.getElementById('main_date').innerHTML = date.toLocaleDateString(locale, DateOptions);
-    this.shadowRoot.querySelector('#time').innerHTML = time;
-    this.shadowRoot.querySelector('#zone1_time').innerHTML = time1;
-    this.shadowRoot.querySelector('#zone2_time').innerHTML = time2;
-    this.shadowRoot.querySelector('#zone3_time').innerHTML = time3;
+    this.shadowRoot.querySelector('#main_time').innerHTML = time;
+    this.shadowRoot.querySelector('#time_zone1').innerHTML = time1;
+    this.shadowRoot.querySelector('#time_zone2').innerHTML = time2;
+    this.shadowRoot.querySelector('#time_zone3').innerHTML = time3;
     
   }
 
