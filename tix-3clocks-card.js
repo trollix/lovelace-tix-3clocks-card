@@ -84,20 +84,25 @@ class Tix3ClocksCard extends LitElement {
   
   static get properties() {
     return {
-      _hass: Object
+      _hass: Object,
+      main_time: { type: Object },
+      main_date: { type: Object },
+      zone1_time: { type: Object },
+      zone2_time: { type: Object },
+      zone3_time: { type: Object },
     }
   }
   
-  ready() {
-    super.ready();
-    this.main_time = this.$.time;
-    this.main_date = this.$.date;	
-    this.zone1_time = this.$.time_zone1;
-    this.zone2_time = this.$.time_zone2;
-    this.zone3_time = this.$.time_zone3;
-    this._updateTime();
-    setInterval(() => this._updateTime(), 500);
-  }
+connectedCallback() {
+  super.connectedCallback();
+  this.main_time = this.shadowRoot.querySelector("#time");
+  this.main_date = this.shadowRoot.querySelector("#date");
+  this.zone1_time = this.shadowRoot.querySelector("#time_zone1");
+  this.zone2_time = this.shadowRoot.querySelector("#time_zone2");
+  this.zone3_time = this.shadowRoot.querySelector("#time_zone3");
+  this._updateTime();
+  setInterval(() => this._updateTime(), 500);
+}
   
   setConfig(config) {
     this.config = config;
@@ -150,11 +155,11 @@ class Tix3ClocksCard extends LitElement {
 	let time2 = date.toLocaleTimeString([], clockFormatZone2);
 	let time3 = date.toLocaleTimeString([], clockFormatZone3);
 	
-	this.main_date.innerHTML = date.toLocaleDateString(locale, DateOptions);
-    this.main_time.innerHTML = time;
-    this.zone1_time.innerHTML = time1;
-    this.zone2_time.innerHTML = time2;
-    this.zone3_time.innerHTML = time3;
+    this.shadowRoot.querySelector('#main_date').innerHTML = date.toLocaleDateString(locale, DateOptions);
+    this.shadowRoot.querySelector('#time').innerHTML = time;
+    this.shadowRoot.querySelector('#zone1_time').innerHTML = time1;
+    this.shadowRoot.querySelector('#zone2_time').innerHTML = time2;
+    this.shadowRoot.querySelector('#zone3_time').innerHTML = time3;
     
   }
 
