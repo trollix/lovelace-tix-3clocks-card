@@ -104,13 +104,15 @@ class Tix3ClocksCard extends LitElement {
   
 connectedCallback() {
   super.connectedCallback();
-  this.main_time = this.shadowRoot.querySelector("#time");
-  this.main_date = this.shadowRoot.querySelector("#date");
-  this.zone1_time = this.shadowRoot.querySelector("#time_zone1");
-  this.zone2_time = this.shadowRoot.querySelector("#time_zone2");
-  this.zone3_time = this.shadowRoot.querySelector("#time_zone3");
-  this._updateTime();
-  setInterval(() => this._updateTime(), 500);
+  setTimeout(() => {
+    this.main_time = this.shadowRoot.querySelector("#time");
+    this.main_date = this.shadowRoot.querySelector("#date");
+    this.zone1_time = this.shadowRoot.querySelector("#time_zone1");
+    this.zone2_time = this.shadowRoot.querySelector("#time_zone2");
+    this.zone3_time = this.shadowRoot.querySelector("#time_zone3");
+    this._updateTime();
+    setInterval(() => this._updateTime(), 500);
+  }, 0);
 }
   
   setConfig(config) {
