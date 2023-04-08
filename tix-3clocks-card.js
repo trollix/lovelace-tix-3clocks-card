@@ -162,11 +162,11 @@ connectedCallback() {
     let date = new Date();
     let locale = 'fr-FR';
     let time = date.toLocaleTimeString([], clockFormatMain);
-	let time1 = date.toLocaleTimeString([], clockFormatZone1);
-	let time2 = date.toLocaleTimeString([], clockFormatZone2);
-	let time3 = date.toLocaleTimeString([], clockFormatZone3);
+    let time1 = date.toLocaleTimeString([], clockFormatZone1);
+    let time2 = date.toLocaleTimeString([], clockFormatZone2);
+    let time3 = date.toLocaleTimeString([], clockFormatZone3);
 	
-    this.shadowRoot.querySelector('#main_date').innerHTML = date.toLocaleDateString(locale, DateOptions);
+    this.shadowRoot.getElementById('main_date').innerHTML = date.toLocaleDateString(locale, DateOptions);
     this.shadowRoot.querySelector('#time').innerHTML = time;
     this.shadowRoot.querySelector('#zone1_time').innerHTML = time1;
     this.shadowRoot.querySelector('#zone2_time').innerHTML = time2;
