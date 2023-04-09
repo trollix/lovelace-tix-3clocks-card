@@ -2,7 +2,7 @@ import {LitElement, html, customElement} from 'https://unpkg.com/lit-element?mod
 
 export const hass = document.querySelector("home-assistant").hass;
 
-const CARD_VERSION = '0.4.5';
+const CARD_VERSION = '0.4.6';
 
 console.info(
   `%c  TIX-3CLOCKS-CARD \n%c  Version ${CARD_VERSION}    `,
