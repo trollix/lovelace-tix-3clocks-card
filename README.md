@@ -1,2 +1,3 @@
-# lovelace-tix-3clocks-card
+# HA T3CLOCKS CARD
+
 Display 3 Clocks - 3 times on lovelace ui

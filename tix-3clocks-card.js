@@ -1,17 +1,18 @@
-import {LitElement, html, customElement} from 'https://unpkg.com/lit-element?module';
+const LitElement = Object.getPrototypeOf(customElements.get("ha-panel-lovelace"));
+const html = LitElement.prototype.html;
+const css = LitElement.prototype.css;
 
-export const hass = document.querySelector("home-assistant").hass;
+//export const hass = document.querySelector("home-assistant").hass;
 
-const CARD_VERSION = '0.4.6';
+const CARD_VERSION = '0.4.8';
 
 console.info(
-  `%c  TIX-3CLOCKS-CARD \n%c  Version ${CARD_VERSION}    `,
-  'color: orange; font-weight: bold; background: black',
-  'color: white; font-weight: bold; background: dimgray'
-);
+	`%c  T3CLOCKS-CARD  %c  Version ${CARD_VERSION}    `,
+	'color: orange; font-weight: bold; background: black',
+	'color: white; font-weight: bold; background: dimgray'
+  );
 
-
-class Tix3ClocksCard extends LitElement {
+class T3ClocksCard extends LitElement {
   
   render() {
     return html`
@@ -181,4 +182,4 @@ connectedCallback() {
   }
 }
 
-customElements.define('tix-3clocks-card', Tix3ClocksCard);
+customElements.define('t3clocks-card', T3ClocksCard);
