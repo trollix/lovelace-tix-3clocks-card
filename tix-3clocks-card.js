@@ -4,9 +4,7 @@ const css = LitElement.prototype.css;
 
 //export const hass = document.querySelector("home-assistant").hass;
 
-const CARD_VERSION = '0.4.8';
-
-import { version, name } from '../hacs.json'
+import { version, name } from './hacs.json'
 
 console.info(
   `%c  ${cardname.toUpperCase()}  %c  Version ${version}  `,
