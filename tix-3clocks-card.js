@@ -6,12 +6,13 @@ const css = LitElement.prototype.css;
 
 const CARD_VERSION = '0.4.8';
 
-console.info(
-	`%c  T3CLOCKS-CARD  %c  Version ${CARD_VERSION}    `,
-	'color: orange; font-weight: bold; background: black',
-	'color: white; font-weight: bold; background: dimgray'
-  );
+import { version, name } from '../hacs.json'
 
+console.info(
+  `%c  ${cardname.toUpperCase()}  %c  Version ${version}  `,
+    'color: white; font-weight: bold; background: crimson',
+    'color: #000; font-weight: bold; background: #ddd',
+);
 class T3ClocksCard extends LitElement {
   
   render() {
