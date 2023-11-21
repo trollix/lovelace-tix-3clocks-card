@@ -4,10 +4,10 @@ const css = LitElement.prototype.css;
 
 //export const hass = document.querySelector("home-assistant").hass;
 
-import { version, name } from './hacs.json'
-
+const CARD_VERSION = '0.5.0';
+const CARD_NAME = "HA-T3CLOCK-CARD";
 console.info(
-  `%c  ${cardname.toUpperCase()}  %c  Version ${version}  `,
+  `%c  ${CARD_NAME}  %c  Version ${CARD_VERSION}  `,
     'color: white; font-weight: bold; background: crimson',
     'color: #000; font-weight: bold; background: #ddd',
 );
